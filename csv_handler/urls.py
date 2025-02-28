@@ -2,5 +2,7 @@ from django.urls import path
 from .views import CSVUploadView
 
 urlpatterns = [
-    path('upload/', CSVUploadView.as_view(), name='csv_upload'),
+    path(
+        "upload/", CSVUploadView.as_view(), name="csv_upload"
+    ),  # Ensure this matches your view
 ]

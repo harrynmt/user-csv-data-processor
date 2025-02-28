@@ -17,8 +17,20 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('api/', include('csv_handler.urls')),
+    path("", RedirectView.as_view(url="/api/upload/", permanent=False), name="home"),
+    path("api/", include("csv_handler.urls")),
 ]
+
+
+# from django.contrib import admin
+# from django.urls import path, include
+
+# urlpatterns = [
+#     path("admin/", admin.site.urls),
+#     path('api/', include('csv_handler.urls')),
+# ]
